@@ -1,4 +1,4 @@
-📌 Judiciário
+📌 AudiencIA
 
 Este projeto tem como objetivo facilitar a gestão de audiências jurídicas, proporcionando uma plataforma eficiente para advogados e funcionários organizarem compromissos, gerenciarem equipes e acompanharem processos. Utilizando Laravel e Supabase, a aplicação oferece autenticação de usuários, permissões diferenciadas, um sistema de CRUD para advogados, funcionários e audiências.
 
