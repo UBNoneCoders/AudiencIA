@@ -1,124 +1,66 @@
-📌 AudiencIA
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Este projeto tem como objetivo facilitar a gestão de audiências jurídicas, proporcionando uma plataforma eficiente para advogados e funcionários organizarem compromissos, gerenciarem equipes e acompanharem processos. Utilizando Laravel e Supabase, a aplicação oferece autenticação de usuários, permissões diferenciadas, um sistema de CRUD para advogados, funcionários e audiências.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-🚀 Tecnologias Utilizadas
+## About Laravel
 
-Laravel
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-Supabase
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-N8N
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-ChatGPT
+## Learning Laravel
 
-[Outras tecnologias utilizadas]
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-👥 Equipe
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-Guilherme - Criação do repositório, documentação
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Matheus - Configuração de tasks, modelagem de classes
+## Laravel Sponsors
 
-Luan - Modelagem do banco de dados
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-📅 Planejamento do Desenvolvimento
+### Premium Partners
 
-🔹 Sprint 1: Configuração Inicial do Projeto
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-Criação do repositório
+## Contributing
 
-Configuração de tasks
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-Modelagem de classes e banco de dados (ER)
+## Code of Conduct
 
-Documentação inicial
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-🔹 Sprint 2: Desenvolvimento Inicial e Autenticação
+## Security Vulnerabilities
 
-Configurar ambiente Laravel e Supabase
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Criar estrutura do banco no Supabase
+## License
 
-Configurar autenticação de usuários (Login/Registro)
-
-Implementar sistema de permissões (Advogado vs Funcionário)
-
-Criar interface básica de login e dashboard
-
-Testar autenticação
-
-🔹 Sprint 3: Gestão de Perfis de Usuários
-
-Criar tabelas para advogados e funcionários
-
-Implementar CRUD de advogados
-
-Implementar CRUD de funcionários (Apenas advogados podem gerenciar)
-
-Criar tela de gerenciamento de equipe para advogados
-
-Testar permissões de usuário
-
-🔹 Sprint 4: CRUD de Audiências
-
-Criar tabela de audiências no Supabase
-
-Implementar CRUD de audiências
-
-Criar interface para visualização e gerenciamento das audiências
-
-Implementar notificações básicas no dashboard
-
-🔹 Sprint 5: Organização e Visualização das Audiências
-
-Criar um calendário para exibição das audiências
-
-Implementar status para audiências (Aberta, Concluída, Cancelada, Adiada)
-
-Criar sistema de buscas
-
-Implementar ordenação e paginação
-
-Melhorar UI/UX para facilitar a navegação
-
-🔹 Sprint 6: Finalização
-
-Testes finais e correção de bugs
-
-Preparação para o deploy
-
-Configuração do Agente ChatGPT
-
-Integração N8N (Agente e Supabase)
-
-🛠️ Como Rodar o Projeto
-
-Clone o repositório:
-
-git clone https://github.com/seu-repositorio.git
-
-Acesse a pasta do projeto:
-
-cd nome-do-projeto
-
-Instale as dependências:
-
-composer install
-
-Configure o arquivo .env conforme o modelo .env.example.
-
-Execute as migrations:
-
-php artisan migrate
-
-Inicie o servidor:
-
-php artisan serve
-
-📄 Licença
-
-[Adicione aqui a licença do projeto, se houver.]
-
-📌 Projeto desenvolvido para facilitar a gestão de audiências e equipes jurídicas.
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
