@@ -299,8 +299,7 @@ abstract class Broadcaster implements BroadcasterContract
     {
         if (! $this->bindingRegistrar) {
             $this->bindingRegistrar = Container::getInstance()->bound(BindingRegistrar::class)
-                ? Container::getInstance()->make(BindingRegistrar::class)
-                : null;
+                        ? Container::getInstance()->make(BindingRegistrar::class) : null;
         }
 
         return $this->bindingRegistrar;

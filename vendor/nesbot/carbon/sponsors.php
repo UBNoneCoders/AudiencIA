@@ -37,32 +37,14 @@ function getHtmlAttribute($rawValue): string
 
 function getOpenCollectiveSponsors(): string
 {
-    $customSponsorOverride = [
+    $customSponsorImages = [
         // For consistency and equity among sponsors, as of now, we kindly ask our sponsors
         // to provide an image having a width/height ratio between 1/1 and 2/1.
         // By default, we'll show the member picture from OpenCollective, and will resize it if bigger
-        662698 => [
-            // alt attribute
-            'name' => 'Non Gamstop Casinos',
-            // title attribute
-            'description' => 'Casinos not on Gamstop',
-            // src attribute
-            'image' => 'https://lgcnews.com/wp-content/uploads/2018/01/LGC-logo-v8-temp.png',
-            // href attribute
-            'website' => 'https://lgcnews.com/',
-        ],
-        663069 => [
-            // href attribute
-            'website' => 'https://www.favbet.ua/uk/',
-        ],
+        // int(OpenCollective.MemberId) => ImageURL
     ];
 
     $members = json_decode(file_get_contents('https://opencollective.com/carbon/members/all.json'), true);
-
-    foreach ($members as &$member) {
-        $member = array_merge($member, $customSponsorOverride[$member['MemberId']] ?? []);
-    }
-
     // Adding sponsors paying via other payment methods
     $members[] = [
         'MemberId' => 1,

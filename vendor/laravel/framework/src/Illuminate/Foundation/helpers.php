@@ -424,8 +424,8 @@ if (! function_exists('dispatch')) {
     function dispatch($job)
     {
         return $job instanceof Closure
-            ? new PendingClosureDispatch(CallQueuedClosure::create($job))
-            : new PendingDispatch($job);
+                ? new PendingClosureDispatch(CallQueuedClosure::create($job))
+                : new PendingDispatch($job);
     }
 }
 
@@ -604,8 +604,8 @@ if (! function_exists('old')) {
      * Retrieve an old input item.
      *
      * @param  string|null  $key
-     * @param  \Illuminate\Database\Eloquent\Model|string|array|null  $default
-     * @return string|array|null
+     * @param  mixed  $default
+     * @return mixed
      */
     function old($key = null, $default = null)
     {

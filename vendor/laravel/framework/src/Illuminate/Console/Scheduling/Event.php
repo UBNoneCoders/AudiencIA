@@ -387,7 +387,7 @@ class Event
      *
      * @throws \LogicException
      */
-    public function emailOutputTo($addresses, $onlyIfOutputExists = true)
+    public function emailOutputTo($addresses, $onlyIfOutputExists = false)
     {
         $this->ensureOutputIsBeingCaptured();
 
@@ -448,7 +448,7 @@ class Event
      * @param  bool  $onlyIfOutputExists
      * @return void
      */
-    protected function emailOutput(Mailer $mailer, $addresses, $onlyIfOutputExists = true)
+    protected function emailOutput(Mailer $mailer, $addresses, $onlyIfOutputExists = false)
     {
         $text = is_file($this->output) ? file_get_contents($this->output) : '';
 
@@ -743,8 +743,8 @@ class Event
             $output = $this->output && is_file($this->output) ? file_get_contents($this->output) : '';
 
             return $onlyIfOutputExists && empty($output)
-                ? null
-                : $container->call($callback, ['output' => new Stringable($output)]);
+                            ? null
+                            : $container->call($callback, ['output' => new Stringable($output)]);
         };
     }
 

@@ -75,22 +75,17 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      *
      * @param  int  $from
      * @param  int  $to
-     * @param  int  $step
      * @return static<int, int>
      */
-    public static function range($from, $to, $step = 1)
+    public static function range($from, $to)
     {
-        if ($step == 0) {
-            throw new InvalidArgumentException('Step value cannot be zero.');
-        }
-
-        return new static(function () use ($from, $to, $step) {
+        return new static(function () use ($from, $to) {
             if ($from <= $to) {
-                for (; $from <= $to; $from += abs($step)) {
+                for (; $from <= $to; $from++) {
                     yield $from;
                 }
             } else {
-                for (; $from >= $to; $from -= abs($step)) {
+                for (; $from >= $to; $from--) {
                     yield $from;
                 }
             }
@@ -1376,28 +1371,22 @@ class LazyCollection implements CanBeEscapedWhenCastToString, Enumerable
      * Chunk the collection into chunks of the given size.
      *
      * @param  int  $size
-     * @param  bool  $preserveKeys
-     * @return ($preserveKeys is true ? static<int, static> : static<int, static<int, TValue>>)
+     * @return static<int, static>
      */
-    public function chunk($size, $preserveKeys = true)
+    public function chunk($size)
     {
         if ($size <= 0) {
             return static::empty();
         }
 
-        $add = match ($preserveKeys) {
-            true => fn (array &$chunk, Traversable $iterator) => $chunk[$iterator->key()] = $iterator->current(),
-            false => fn (array &$chunk, Traversable $iterator) => $chunk[] = $iterator->current(),
-        };
-
-        return new static(function () use ($size, $add) {
+        return new static(function () use ($size) {
             $iterator = $this->getIterator();
 
             while ($iterator->valid()) {
                 $chunk = [];
 
                 while (true) {
-                    $add($chunk, $iterator);
+                    $chunk[$iterator->key()] = $iterator->current();
 
                     if (count($chunk) < $size) {
                         $iterator->next();

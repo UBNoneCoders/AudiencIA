@@ -33,12 +33,10 @@ class DatabaseChannel
         return [
             'id' => $notification->id,
             'type' => method_exists($notification, 'databaseType')
-                ? $notification->databaseType($notifiable)
-                : get_class($notification),
+                        ? $notification->databaseType($notifiable)
+                        : get_class($notification),
             'data' => $this->getData($notifiable, $notification),
-            'read_at' => method_exists($notification, 'initialDatabaseReadAtValue')
-                ? $notification->initialDatabaseReadAtValue($notifiable)
-                : null,
+            'read_at' => null,
         ];
     }
 
@@ -55,8 +53,7 @@ class DatabaseChannel
     {
         if (method_exists($notification, 'toDatabase')) {
             return is_array($data = $notification->toDatabase($notifiable))
-                ? $data
-                : $data->data;
+                                ? $data : $data->data;
         }
 
         if (method_exists($notification, 'toArray')) {

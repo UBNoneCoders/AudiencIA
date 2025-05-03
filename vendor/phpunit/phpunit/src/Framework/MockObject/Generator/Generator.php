@@ -151,7 +151,7 @@ final class Generator
             $callOriginalMethods,
         );
 
-        $object = $this->instantiate(
+        $object = $this->getObject(
             $mock,
             $type,
             $callOriginalConstructor,
@@ -386,7 +386,7 @@ final class Generator
             ],
         );
 
-        return $this->instantiate(
+        return $this->getObject(
             new MockTrait(
                 $classTemplate->render(),
                 $className['className'],
@@ -602,7 +602,7 @@ final class Generator
      * @throws ReflectionException
      * @throws RuntimeException
      */
-    private function instantiate(MockType $mockClass, string $type = '', bool $callOriginalConstructor = false, array $arguments = [], bool $callOriginalMethods = false, ?object $proxyTarget = null, bool $returnValueGeneration = true): object
+    private function getObject(MockType $mockClass, string $type = '', bool $callOriginalConstructor = false, array $arguments = [], bool $callOriginalMethods = false, ?object $proxyTarget = null, bool $returnValueGeneration = true): object
     {
         $className = $mockClass->generate();
 
@@ -848,7 +848,7 @@ final class Generator
                     $message,
                 );
             } catch (NoTestCaseObjectOnCallStackException) {
-                EventFacade::emitter()->testRunnerTriggeredPhpunitDeprecation($message);
+                EventFacade::emitter()->testRunnerTriggeredDeprecation($message);
             }
         }
 

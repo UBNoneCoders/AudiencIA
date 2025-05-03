@@ -361,13 +361,9 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function merge(array $input)
     {
-        return tap($this, function (Request $request) use ($input) {
-            $request->getInputSource()
-                    ->replace(collect($input)->reduce(
-                        fn ($requestInput, $value, $key) => data_set($requestInput, $key, $value),
-                        $this->getInputSource()->all()
-                    ));
-        });
+        $this->getInputSource()->add($input);
+
+        return $this;
     }
 
     /**
@@ -564,8 +560,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     public function getSession(): SessionInterface
     {
         return $this->hasSession()
-            ? $this->session
-            : throw new SessionNotFoundException;
+                    ? $this->session
+                    : throw new SessionNotFoundException;
     }
 
     /**

@@ -218,7 +218,7 @@ class CallQueuedHandler
      */
     protected function handleModelNotFound(Job $job, $e)
     {
-        $class = $job->resolveQueuedJobClass();
+        $class = $job->resolveName();
 
         try {
             $reflectionClass = new ReflectionClass($class);
