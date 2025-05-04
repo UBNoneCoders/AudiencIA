@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             [
                 'external_id' => Str::uuid()->toString(),
                 'name' => 'Advogado(a) Sousa Alencar',
-                'password' => bcrypt('adm@adv'),
+                'password' => bcrypt('123456'),
                 'role' => '1',
                 'email_verified_at' => now(),
             ]
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             [
                 'external_id' => Str::uuid()->toString(),
                 'name' => 'Funcionário(a) Sousa Alencar',
-                'password' => bcrypt('funcionario@adv'),
+                'password' => bcrypt('123456'),
                 'role' => '2',
                 'email_verified_at' => now(),
             ]

@@ -52,7 +52,7 @@ export default function Login() {
             <Head title="Login" />
 
             <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
-                <div className="w-full max-w-sm md:max-w-4xl">
+                <div className="w-full max-w-sm md:max-w-5xl">
                     <div className={cn("flex flex-col gap-6")}>
                         <Card className="overflow-hidden">
                             <CardContent className="grid p-0 md:grid-cols-2">
@@ -64,13 +64,11 @@ export default function Login() {
                                         <div className="flex flex-col gap-5">
                                             <div className="flex flex-col mb-3">
                                                 <h1 className="text-2xl font-bold">
-                                                    Bem-Vindo ao Audiênc
-                                                    <span className="text-red-600">IA</span>!
+                                                    Bem-Vindo(a) ao Audiênc
+                                                    <span className="text-[hsl(42,87%,55%)]">IA</span>! 👋
                                                 </h1>
                                                 <p className="w-full text-muted-foreground">
-                                                    A plataforma estratégica
-                                                    para gestão de pessoas no
-                                                    RH!
+                                                    A forma mais eficiente de gerenciar processos e audiências com seus clientes usando IA.
                                                 </p>
                                             </div>
                                             <div className="flex flex-col gap-3">

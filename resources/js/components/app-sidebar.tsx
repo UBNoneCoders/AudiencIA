@@ -1,21 +1,9 @@
 "use client"
 
 import * as React from "react"
-import {
-    Command,
-    Frame, Home, Lock,
-    LifeBuoy,
-    Send,
-    SquareTerminal,
-    UsersRound,
-    User,
-    BriefcaseBusiness,
-    CircleDollarSign,
-    UserMinus
-} from "lucide-react"
+import { Handshake, Home, Scale, Users, Webcam } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import {
     Sidebar,
@@ -23,7 +11,6 @@ import {
     SidebarFooter,
     SidebarHeader,
     SidebarMenu,
-    SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Link, usePage } from "@inertiajs/react";
@@ -40,25 +27,25 @@ const data = {
         {
             title: "Colaboradores",
             url: "/collaborators",
-            icon: UsersRound,
+            icon: Handshake,
             permission: ["1"]
         },
         {
             title: "Audiências",
             url: "/roles",
-            icon: UsersRound,
+            icon: Webcam,
             permission: ["1", "2"]
         },
         {
             title: "Processos",
             url: "/permissions",
-            icon: Lock,
+            icon: Scale,
             permission: ["1", "2"]
         },
         {
             title: "Clientes",
             url: "/permissions",
-            icon: Lock,
+            icon: Users,
             permission: ["1", "2"]
         }
     ],
