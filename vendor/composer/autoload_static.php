@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
+class ComposerStaticInit7ab6e770abef4da68fe0643379ee022a
 {
     public static $files = array (
         '88254829cb0eed057c30eaabb6d8edc4' => __DIR__ . '/..' . '/amphp/amp/src/functions.php',
@@ -263,8 +263,8 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'phpDocumentor\\' => 
         array (
@@ -456,8 +456,8 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -549,8 +549,8 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri',
-            1 => __DIR__ . '/..' . '/league/uri-interfaces',
+            0 => __DIR__ . '/..' . '/league/uri-interfaces',
+            1 => __DIR__ . '/..' . '/league/uri',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -1177,7 +1177,6 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
-        'Database\\Seeders\\RolesAndPermissionsSeeder' => __DIR__ . '/../..' . '/database/seeders/RolesAndPermissionsSeeder.php',
         'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
@@ -3200,6 +3199,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Illuminate\\Support\\DefaultProviders' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/DefaultProviders.php',
         'Illuminate\\Support\\Defer\\DeferredCallback' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Defer/DeferredCallback.php',
         'Illuminate\\Support\\Defer\\DeferredCallbackCollection' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Defer/DeferredCallbackCollection.php',
+        'Illuminate\\Support\\EncodedHtmlString' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/EncodedHtmlString.php',
         'Illuminate\\Support\\Enumerable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/Enumerable.php',
         'Illuminate\\Support\\Env' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Env.php',
         'Illuminate\\Support\\Exceptions\\MathException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/Exceptions/MathException.php',
@@ -4556,6 +4556,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
         'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
+        'Monolog\\Test\\MonologTestCase' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Test/MonologTestCase.php',
         'Monolog\\Test\\TestCase' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Test/TestCase.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
@@ -4586,6 +4587,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Nette\\Schema\\Processor' => __DIR__ . '/..' . '/nette/schema/src/Schema/Processor.php',
         'Nette\\Schema\\Schema' => __DIR__ . '/..' . '/nette/schema/src/Schema/Schema.php',
         'Nette\\Schema\\ValidationException' => __DIR__ . '/..' . '/nette/schema/src/Schema/ValidationException.php',
+        'Nette\\ShouldNotHappenException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
         'Nette\\SmartObject' => __DIR__ . '/..' . '/nette/utils/src/SmartObject.php',
         'Nette\\StaticClass' => __DIR__ . '/..' . '/nette/utils/src/StaticClass.php',
         'Nette\\UnexpectedValueException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
@@ -4696,6 +4698,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'OwenIt\\Auditing\\Resolvers\\UserResolver' => __DIR__ . '/..' . '/owen-it/laravel-auditing/src/Resolvers/UserResolver.php',
         'PHPStan\\PhpDocParser\\Ast\\AbstractNodeVisitor' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/AbstractNodeVisitor.php',
         'PHPStan\\PhpDocParser\\Ast\\Attribute' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Attribute.php',
+        'PHPStan\\PhpDocParser\\Ast\\Comment' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Comment.php',
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\ConstExprArrayItemNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/ConstExprArrayItemNode.php',
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\ConstExprArrayNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/ConstExprArrayNode.php',
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\ConstExprFalseNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/ConstExprFalseNode.php',
@@ -5100,6 +5103,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'PHPUnit\\Framework\\Attributes\\UsesMethod' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Attributes/UsesMethod.php',
         'PHPUnit\\Framework\\Attributes\\UsesTrait' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Attributes/UsesTrait.php',
         'PHPUnit\\Framework\\Attributes\\WithoutErrorHandler' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Attributes/WithoutErrorHandler.php',
+        'PHPUnit\\Framework\\ChildProcessResultProcessor' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/TestRunner/ChildProcessResultProcessor.php',
         'PHPUnit\\Framework\\CodeCoverageException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/CodeCoverageException.php',
         'PHPUnit\\Framework\\ComparisonMethodDoesNotAcceptParameterTypeException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotAcceptParameterTypeException.php',
         'PHPUnit\\Framework\\ComparisonMethodDoesNotDeclareBoolReturnTypeException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ObjectEquals/ComparisonMethodDoesNotDeclareBoolReturnTypeException.php',
@@ -5382,6 +5386,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'PHPUnit\\Metadata\\Group' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Group.php',
         'PHPUnit\\Metadata\\IgnoreDeprecations' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/IgnoreDeprecations.php',
         'PHPUnit\\Metadata\\IgnorePhpunitDeprecations' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/IgnorePhpunitDeprecations.php',
+        'PHPUnit\\Metadata\\InvalidAttributeException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Exception/InvalidAttributeException.php',
         'PHPUnit\\Metadata\\InvalidVersionRequirementException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Exception/InvalidVersionRequirementException.php',
         'PHPUnit\\Metadata\\Metadata' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Metadata.php',
         'PHPUnit\\Metadata\\MetadataCollection' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/MetadataCollection.php',
@@ -5689,7 +5694,6 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCacheTokensAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCacheTokensAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveConversionToExceptionsAttributes' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveConversionToExceptionsAttributes.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementCacheDirectoryAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementCacheDirectoryAttribute.php',
-        'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementIncludeUncoveredFilesAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementIncludeUncoveredFilesAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementProcessUncoveredFilesAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementProcessUncoveredFilesAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveEmptyFilter' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveEmptyFilter.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveListeners' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveListeners.php',
@@ -7202,6 +7206,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Spatie\\LaravelData\\Attributes\\AutoClosureLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/AutoClosureLazy.php',
+        'Spatie\\LaravelData\\Attributes\\AutoInertiaDeferred' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/AutoInertiaDeferred.php',
         'Spatie\\LaravelData\\Attributes\\AutoInertiaLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/AutoInertiaLazy.php',
         'Spatie\\LaravelData\\Attributes\\AutoLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/AutoLazy.php',
         'Spatie\\LaravelData\\Attributes\\AutoWhenLoadedLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/AutoWhenLoadedLazy.php',
@@ -7222,6 +7227,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Attributes\\MapName' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/MapName.php',
         'Spatie\\LaravelData\\Attributes\\MapOutputName' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/MapOutputName.php',
         'Spatie\\LaravelData\\Attributes\\MergeValidationRules' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/MergeValidationRules.php',
+        'Spatie\\LaravelData\\Attributes\\PropertyForMorph' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/PropertyForMorph.php',
         'Spatie\\LaravelData\\Attributes\\Validation\\Accepted' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/Validation/Accepted.php',
         'Spatie\\LaravelData\\Attributes\\Validation\\AcceptedIf' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/Validation/AcceptedIf.php',
         'Spatie\\LaravelData\\Attributes\\Validation\\ActiveUrl' => __DIR__ . '/..' . '/spatie/laravel-data/src/Attributes/Validation/ActiveUrl.php',
@@ -7355,6 +7361,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Contracts\\DeprecatedData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/DeprecatedData.php',
         'Spatie\\LaravelData\\Contracts\\EmptyData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/EmptyData.php',
         'Spatie\\LaravelData\\Contracts\\IncludeableData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/IncludeableData.php',
+        'Spatie\\LaravelData\\Contracts\\PropertyMorphableData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/PropertyMorphableData.php',
         'Spatie\\LaravelData\\Contracts\\ResponsableData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/ResponsableData.php',
         'Spatie\\LaravelData\\Contracts\\TransformableData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/TransformableData.php',
         'Spatie\\LaravelData\\Contracts\\ValidateableData' => __DIR__ . '/..' . '/spatie/laravel-data/src/Contracts/ValidateableData.php',
@@ -7421,6 +7428,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Resolvers\\DataCollectableFromSomethingResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataCollectableFromSomethingResolver.php',
         'Spatie\\LaravelData\\Resolvers\\DataFromArrayResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataFromArrayResolver.php',
         'Spatie\\LaravelData\\Resolvers\\DataFromSomethingResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataFromSomethingResolver.php',
+        'Spatie\\LaravelData\\Resolvers\\DataMorphClassResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataMorphClassResolver.php',
         'Spatie\\LaravelData\\Resolvers\\DataValidationMessagesAndAttributesResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataValidationMessagesAndAttributesResolver.php',
         'Spatie\\LaravelData\\Resolvers\\DataValidationRulesResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataValidationRulesResolver.php',
         'Spatie\\LaravelData\\Resolvers\\DataValidatorResolver' => __DIR__ . '/..' . '/spatie/laravel-data/src/Resolvers/DataValidatorResolver.php',
@@ -7451,6 +7459,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Support\\Creation\\CreationContextFactory' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Creation/CreationContextFactory.php',
         'Spatie\\LaravelData\\Support\\Creation\\GlobalCastsCollection' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Creation/GlobalCastsCollection.php',
         'Spatie\\LaravelData\\Support\\Creation\\ValidationStrategy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Creation/ValidationStrategy.php',
+        'Spatie\\LaravelData\\Support\\DataAttributesCollection' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/DataAttributesCollection.php',
         'Spatie\\LaravelData\\Support\\DataClass' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/DataClass.php',
         'Spatie\\LaravelData\\Support\\DataClassMorphMap' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/DataClassMorphMap.php',
         'Spatie\\LaravelData\\Support\\DataCollectionAnnotationReader' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/DataCollectionAnnotationReader.php',
@@ -7464,6 +7473,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Support\\DataType' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/DataType.php',
         'Spatie\\LaravelData\\Support\\EloquentCasts\\DataCollectionEloquentCast' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/EloquentCasts/DataCollectionEloquentCast.php',
         'Spatie\\LaravelData\\Support\\EloquentCasts\\DataEloquentCast' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/EloquentCasts/DataEloquentCast.php',
+        'Spatie\\LaravelData\\Support\\Factories\\DataAttributesCollectionFactory' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Factories/DataAttributesCollectionFactory.php',
         'Spatie\\LaravelData\\Support\\Factories\\DataClassFactory' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Factories/DataClassFactory.php',
         'Spatie\\LaravelData\\Support\\Factories\\DataMethodFactory' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Factories/DataMethodFactory.php',
         'Spatie\\LaravelData\\Support\\Factories\\DataParameterFactory' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Factories/DataParameterFactory.php',
@@ -7474,6 +7484,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Support\\Lazy\\ClosureLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/ClosureLazy.php',
         'Spatie\\LaravelData\\Support\\Lazy\\ConditionalLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/ConditionalLazy.php',
         'Spatie\\LaravelData\\Support\\Lazy\\DefaultLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/DefaultLazy.php',
+        'Spatie\\LaravelData\\Support\\Lazy\\InertiaDeferred' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/InertiaDeferred.php',
         'Spatie\\LaravelData\\Support\\Lazy\\InertiaLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/InertiaLazy.php',
         'Spatie\\LaravelData\\Support\\Lazy\\LivewireLostLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/LivewireLostLazy.php',
         'Spatie\\LaravelData\\Support\\Lazy\\RelationalLazy' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Lazy/RelationalLazy.php',
@@ -7505,6 +7516,7 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Support\\Types\\Type' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Types/Type.php',
         'Spatie\\LaravelData\\Support\\Types\\UnionType' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Types/UnionType.php',
         'Spatie\\LaravelData\\Support\\Validation\\DataRules' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Validation/DataRules.php',
+        'Spatie\\LaravelData\\Support\\Validation\\EnsurePropertyMorphable' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Validation/EnsurePropertyMorphable.php',
         'Spatie\\LaravelData\\Support\\Validation\\PropertyRules' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Validation/PropertyRules.php',
         'Spatie\\LaravelData\\Support\\Validation\\References\\FieldReference' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Validation/References/FieldReference.php',
         'Spatie\\LaravelData\\Support\\Validation\\References\\RouteParameterReference' => __DIR__ . '/..' . '/spatie/laravel-data/src/Support/Validation/References/RouteParameterReference.php',
@@ -7526,18 +7538,34 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\LaravelData\\Transformers\\SerializeTransformer' => __DIR__ . '/..' . '/spatie/laravel-data/src/Transformers/SerializeTransformer.php',
         'Spatie\\LaravelData\\Transformers\\Transformer' => __DIR__ . '/..' . '/spatie/laravel-data/src/Transformers/Transformer.php',
         'Spatie\\LaravelData\\WithData' => __DIR__ . '/..' . '/spatie/laravel-data/src/WithData.php',
+        'Spatie\\LaravelPackageTools\\Commands\\Concerns\\AskToRunMigrations' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/Concerns/AskToRunMigrations.php',
+        'Spatie\\LaravelPackageTools\\Commands\\Concerns\\AskToStarRepoOnGitHub' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/Concerns/AskToStarRepoOnGitHub.php',
+        'Spatie\\LaravelPackageTools\\Commands\\Concerns\\PublishesResources' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/Concerns/PublishesResources.php',
+        'Spatie\\LaravelPackageTools\\Commands\\Concerns\\SupportsServiceProviderInApp' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/Concerns/SupportsServiceProviderInApp.php',
+        'Spatie\\LaravelPackageTools\\Commands\\Concerns\\SupportsStartWithEndWith' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/Concerns/SupportsStartWithEndWith.php',
         'Spatie\\LaravelPackageTools\\Commands\\InstallCommand' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/InstallCommand.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessAssets' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessAssets.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessBladeComponents' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessBladeComponents.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessCommands' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessCommands.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessConfigs' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessConfigs.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessInertia' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessInertia.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessMigrations' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessMigrations.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessRoutes' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessRoutes.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessServiceProviders' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessServiceProviders.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessTranslations' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessTranslations.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessViewComposers' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessViewComposers.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessViewSharedData' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessViewSharedData.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\PackageServiceProvider\\ProcessViews' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/PackageServiceProvider/ProcessViews.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasAssets' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasAssets.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasBladeComponents' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasBladeComponents.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasCommands' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasCommands.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasConfigs' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasConfigs.php',
-        'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasConsoleCommands' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasConsoleCommands.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasInertia' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasInertia.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasInstallCommand' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasInstallCommand.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasMigrations' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasMigrations.php',
-        'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasProviders' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasProviders.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasRoutes' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasRoutes.php',
+        'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasServiceProviders' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasServiceProviders.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasTranslations' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasTranslations.php',
-        'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasViewComponents' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasViewComponents.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasViewComposers' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasViewComposers.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasViewSharedData' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasViewSharedData.php',
         'Spatie\\LaravelPackageTools\\Concerns\\Package\\HasViews' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Concerns/Package/HasViews.php',
@@ -7599,6 +7627,10 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
         'Spatie\\Permission\\Contracts\\Role' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/Role.php',
         'Spatie\\Permission\\Contracts\\Wildcard' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Contracts/Wildcard.php',
         'Spatie\\Permission\\DefaultTeamResolver' => __DIR__ . '/..' . '/spatie/laravel-permission/src/DefaultTeamResolver.php',
+        'Spatie\\Permission\\Events\\PermissionAttached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/PermissionAttached.php',
+        'Spatie\\Permission\\Events\\PermissionDetached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/PermissionDetached.php',
+        'Spatie\\Permission\\Events\\RoleAttached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/RoleAttached.php',
+        'Spatie\\Permission\\Events\\RoleDetached' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Events/RoleDetached.php',
         'Spatie\\Permission\\Exceptions\\GuardDoesNotMatch' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/GuardDoesNotMatch.php',
         'Spatie\\Permission\\Exceptions\\PermissionAlreadyExists' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/PermissionAlreadyExists.php',
         'Spatie\\Permission\\Exceptions\\PermissionDoesNotExist' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Exceptions/PermissionDoesNotExist.php',
@@ -8948,9 +8980,9 @@ class ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitc6b3bc5012e13a4be1434c28a68b5da3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7ab6e770abef4da68fe0643379ee022a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7ab6e770abef4da68fe0643379ee022a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7ab6e770abef4da68fe0643379ee022a::$classMap;
 
         }, null, ClassLoader::class);
     }

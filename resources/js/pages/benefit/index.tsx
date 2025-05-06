@@ -1,31 +1,31 @@
+import { Head, router } from "@inertiajs/react";
+import { ColumnDef } from "@tanstack/react-table";
+import { MoreHorizontal } from "lucide-react";
 import { useEffect, useState } from "react";
 import { z } from "zod";
-import { Head, Link, router } from "@inertiajs/react";
-import { MoreHorizontal } from "lucide-react";
-import { ColumnDef } from "@tanstack/react-table";
 
-import AuthenticatedLayout from "@/layouts/authenticated-layout";
 import { DataTable } from "@/components/data-table";
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { BenefitFormDialog } from "@/components/forms/form-benefit";
+import AuthenticatedLayout from "@/layouts/authenticated-layout";
 
 import { IBenefit, IBenefitProps } from "@/interfaces/IBenefit";
 import { benefitFormSchema } from "@/schemas/form-benefit-schema";
@@ -220,10 +220,10 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
     };
 
     return (
-        <AuthenticatedLayout header="Lista de Benefios">
-            <Head title="Lista de Benefios" />
+        <AuthenticatedLayout header="Lista de Clientes">
+            <Head title="Lista de Clientes" />
             <div className="flex flex-1 flex-col gap-4 h-full">
-                <h2 className="text-lg font-semibold">Lista de Benefios</h2>
+                <h2 className="text-lg font-semibold">Lista de Clientes</h2>
                 <DataTable
                     data={benefitData}
                     columns={columns}

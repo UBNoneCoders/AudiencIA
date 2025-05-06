@@ -44,7 +44,7 @@ const data = {
         },
         {
             title: "Clientes",
-            url: "/permissions",
+            url: "/clients",
             icon: Users,
             permission: ["1", "2"]
         }
