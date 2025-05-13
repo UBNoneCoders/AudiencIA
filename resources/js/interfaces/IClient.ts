@@ -1,5 +1,5 @@
+import { clientFormSchema } from "@/schemas/form-process-schema";
 import { z } from "zod";
-import { clientFormSchema } from "@/schemas/form-client-schema";
 
 interface IClient {
     external_id: string;
@@ -44,4 +44,5 @@ interface IClientFormDialogProps {
     ) => void;
 }
 
-export type { IClient, IClientData, IClientProps, IClientFormDialogProps };
+export type { IClient, IClientData, IClientFormDialogProps, IClientProps };
+

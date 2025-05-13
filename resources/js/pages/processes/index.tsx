@@ -7,62 +7,69 @@ import { z } from "zod";
 import { DataTable } from "@/components/data-table";
 import { ClientFormDialog } from "@/components/forms/form-client";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import AuthenticatedLayout from "@/layouts/authenticated-layout";
-import { clientFormSchema } from "@/schemas/form-client-schema";
-
-const getColumns = (): ColumnDef<any>[] => [
+import { ProcessFormDialog } from "@/components/forms/form-process";
+import { processFormSchema } from "@/schemas/form-process-schema";
+const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] => [
     {
-        accessorKey: "name",
-        header: "Nome",
+        accessorKey: "author_name",
+        header: "Parte Autora",
         cell: ({ row }) => (
             <div className="flex items-center gap-6">
-                <span>{row.original.name}</span>
+                <span>{row.original.author_name}</span>
             </div>
         ),
     },
     {
-        accessorKey: "gender",
-        header: "Gênero",
+        accessorKey: "opposing_party_name",
+        header: "Parte Contrária",
         cell: ({ row }) => (
-            <div className="flex items-center gap-4">
-                <span>{row.original.gender.charAt(0).toUpperCase() + row.original.gender.substring(1)}</span>
+            <div className="flex items-center gap-6">
+                <span>{row.original.opposing_party_name}</span>
             </div>
         ),
     },
     {
-        accessorKey: "whatsapp",
-        header: "Whatsapp",
+        accessorKey: "case_reason",
+        header: "Motivo",
         cell: ({ row }) => (
-            <div className="flex items-center gap-4">
-                <span>{row.original.whatsapp}</span>
+            <div className="flex items-center gap-6">
+                <span>{row.original.case_reason}</span>
             </div>
         ),
     },
     {
+        accessorKey: "case_value",
+        header: "Valor",
+        cell: ({ row }) => (
+            <div className="flex items-center gap-6">
+                <span>{row.original.case_value}</span>
+            </div>
+        ),
+        },
+        {
         id: "actions",
         header: () => <div className="text-right">Ações</div>,
         cell: ({ row }) => {
-            const client = row.original;
-
-            console.log(client);
+            const process = row.original;
 
             const [isOpenAlertDelete, setIsOpenAlertDelete] = useState<boolean>(false);
             const onAlertDelete = () => setIsOpenAlertDelete(!isOpenAlertDelete);
@@ -70,10 +77,8 @@ const getColumns = (): ColumnDef<any>[] => [
             const [isOpenUpdateForm, setIsOpenUpdateForm] = useState<boolean>(false);
             const onUpdate = () => setIsOpenUpdateForm(!isOpenUpdateForm);
 
-            const handleUpdate = (values: z.infer<ReturnType<typeof clientFormSchema>>, id?: string) => {
-                values.whatsapp = values.whatsapp.replace(/\D/g, "");
-
-                router.put(route('clients.update', id), values, {
+            const handleUpdate = (values: z.infer<ReturnType<typeof processFormSchema>>, id?: string) => {
+                router.put(route('processes.update', id), values, {
                     preserveState: true,
                     preserveScroll: true,
                     onSuccess: () => {
@@ -86,7 +91,7 @@ const getColumns = (): ColumnDef<any>[] => [
             };
 
             const handleDelete = (id: string) => {
-                router.delete(route('clients.destroy', id), {
+                router.delete(route('processes.destroy', id), {
                     preserveState: true,
                     preserveScroll: true,
                 });
@@ -125,19 +130,20 @@ const getColumns = (): ColumnDef<any>[] => [
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                         <AlertDialogCancel onClick={onAlertDelete}>Cancelar</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => { handleDelete(client.id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
+                                        <AlertDialogAction onClick={() => { handleDelete(process.id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
                                             Continuar
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
                             </AlertDialog>
 
-                            <ClientFormDialog
-                                data={client}
-                                id={client.id}
+                            <ProcessFormDialog
+                                data={process}
+                                id={process.id}
                                 isOpen={isOpenUpdateForm}
                                 setIsOpen={setIsOpenUpdateForm}
                                 onSubmit={handleUpdate}
+                                clients={clients}
                             />
                         </div>
                 </>
@@ -146,38 +152,42 @@ const getColumns = (): ColumnDef<any>[] => [
     },
 ];
 
-interface IClient {
+interface IProcess {
     id: string;
-    name: string;
-    gender: string;
-    whatsapp: number;
+    client_id: string;
+    author_name: string;
+    opposing_party_name: string;
+    process_number: string;
+    case_reason: string;
+    case_value: string;
+    description?: string;
 }
 
-export default function Index({ clients, queryParams }: any) {
-    const [benefitData, setEnterpriseData] = useState<IClient[]>(clients.data);
-    const [columns, setColumns] = useState(getColumns());
-    const [currentPage, setCurrentPage] = useState(clients.current_page);
-    const [lastPage, setLastPage] = useState(clients.last_page);
-    const [perPage, setPerPage] = useState(clients.per_page);
+export default function Index({ processes, clients, queryParams }: any) {
+    const [processData, setEnterpriseData] = useState<IProcess[]>(processes.data);
+    const [columns, setColumns] = useState(getColumns(clients));
+    const [currentPage, setCurrentPage] = useState(processes.current_page);
+    const [lastPage, setLastPage] = useState(processes.last_page);
+    const [perPage, setPerPage] = useState(processes.per_page);
     const [searchValue, setSearchValue] = useState(queryParams.search ?? "");
     const [sort, setSort] = useState<{ column: string; direction: "asc" | "desc" }>({ column: "name", direction: "asc" });
 
     useEffect(() => {
-        setEnterpriseData(clients.data);
-        setColumns(getColumns());
-        setCurrentPage(clients.current_page);
-        setLastPage(clients.last_page);
-        setPerPage(clients.per_page);
-    }, [clients]);
+        setEnterpriseData(processes.data);
+        setColumns(getColumns(clients));
+        setCurrentPage(processes.current_page);
+        setLastPage(processes.last_page);
+        setPerPage(processes.per_page);
+    }, [processes]);
 
     useEffect(() => {
-        if (benefitData.length === 0 && currentPage > 1) {
-            fetchBenefit(currentPage - 1, perPage, searchValue, sort);
+        if (processData.length === 0 && currentPage > 1) {
+            fetchProcess(currentPage - 1, perPage, searchValue, sort);
         }
-    }, [benefitData]);
+    }, [processData]);
 
-    const fetchBenefit = (page = 1, perPage = 10, search = "", sort = { column: "name", direction: "asc" }) => {
-        router.get(route('clients.index', {
+    const fetchProcess = (page = 1, perPage = 10, search = "", sort = { column: "name", direction: "asc" }) => {
+        router.get(route('processes.index', {
             page,
             per_page: perPage,
             search,
@@ -191,64 +201,63 @@ export default function Index({ clients, queryParams }: any) {
 
     const onPageChange = (page: number) => {
         setCurrentPage(page);
-        if (page != clients.current_page) {
-            fetchBenefit(page, perPage, searchValue, sort);
+        if (page != processes.current_page) {
+            fetchProcess(page, perPage, searchValue, sort);
         }
     };
 
     const onSearchSubmit = () => {
-        fetchBenefit(1, perPage, searchValue, sort);
+        fetchProcess(1, perPage, searchValue, sort);
     }
 
     const onRowsPerPageChange = (rows: number) => {
         setPerPage(rows);
         setCurrentPage(1);
-        if (rows != clients.per_page) {
-            fetchBenefit(1, rows, searchValue, sort);
+        if (rows != processes.per_page) {
+            fetchProcess(1, rows, searchValue, sort);
         }
     };
 
     const [isOpenAddBenefitForm, setIsOpenAddBenefitForm] = useState<boolean>(false);
-    const onAddBenefit = () => setIsOpenAddBenefitForm(!isOpenAddBenefitForm);
+    const onAddProcess = () => setIsOpenAddBenefitForm(!isOpenAddBenefitForm);
 
-    const handleSubmit = (values: z.infer<ReturnType<typeof clientFormSchema>>) => {
-        values.whatsapp = values.whatsapp.replace(/\D/g, "");
-
-        router.post(route('clients.store'), values, {
+    const handleSubmit = (values: z.infer<ReturnType<typeof processFormSchema>>) => {
+        router.post(route('processes.store'), values, {
             preserveState: true,
             preserveScroll: true,
             onSuccess: () => {
-                onAddBenefit();
+                onAddProcess();
             },
         });
     };
 
     return (
-        <AuthenticatedLayout header="Lista de Clientes">
-            <Head title="Lista de Clientes" />
+        <AuthenticatedLayout header="Lista de Processos">
+            <Head title="Lista de Processos" />
             <div className="flex flex-1 flex-col gap-4 h-full">
-                <h2 className="text-lg font-semibold">Lista de Clientes</h2>
+                <h2 className="text-lg font-semibold">Lista de Processos</h2>
                 <DataTable
-                    data={benefitData}
+                    data={processData}
                     columns={columns}
                     currentPage={currentPage}
                     lastPage={lastPage}
                     rowsPerPage={perPage}
                     searchValue={searchValue}
                     onSearchCharge={setSearchValue}
-                    searchPlaceholder="Pesquisar por nome do beneficio..."
+                    searchPlaceholder="Pesquisar pela parte autora..."
                     onSearchSubmit={onSearchSubmit}
                     onPageChange={onPageChange}
                     onRowsPerPageChange={onRowsPerPageChange}
-                    onAdd={onAddBenefit}
+                    onAdd={onAddProcess}
                 />
             </div>
 
-            {/* Formulário de Adicionar Permissão */}
-            <ClientFormDialog
+            <ProcessFormDialog
+                handleSubmit={handleSubmit}
                 isOpen={isOpenAddBenefitForm}
                 setIsOpen={setIsOpenAddBenefitForm}
                 onSubmit={handleSubmit}
+                clients={clients}
             />
         </AuthenticatedLayout>
     );

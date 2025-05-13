@@ -38,7 +38,7 @@ const data = {
         },
         {
             title: "Processos",
-            url: "/permissions",
+            url: "/processes",
             icon: Scale,
             permission: ["1", "2"]
         },

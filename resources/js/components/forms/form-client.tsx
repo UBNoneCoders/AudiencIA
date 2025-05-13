@@ -1,7 +1,7 @@
+import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
 
 import {
   Select,
@@ -22,13 +22,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
-import Checkbox from "@/components/checkbox"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { clientFormSchema } from "@/schemas/form-client-schema"
-import InputMask from "react-input-mask"
 import { IClientFormDialogProps } from "@/interfaces/IClient"
+import InputMask from "react-input-mask"
+import { clientFormSchema } from "@/schemas/form-client-schema"
 
 export const ClientFormDialog: React.FC<IClientFormDialogProps> = ({
   data,
