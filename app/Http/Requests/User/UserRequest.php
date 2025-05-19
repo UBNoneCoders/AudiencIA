@@ -3,8 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\CrudRequest;
-use Illuminate\Validation\Rule;
-use Spatie\Permission\Models\User;
+use App\Models\User;
 
 class UserRequest extends CrudRequest
 {

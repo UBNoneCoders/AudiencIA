@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use OwenIt\Auditing\Models\Audit;
-use Str;
+use Illuminate\Support\Str;
 
 class UserController extends AuthController
 {
@@ -37,6 +37,7 @@ class UserController extends AuthController
     {
         $data = $request->validated();
 
+        $data['external_id'] = Str::uuid();
         $data['password'] = bcrypt($data['password']);
         $this->model::create($data);
 
