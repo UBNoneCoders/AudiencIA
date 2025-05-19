@@ -38,13 +38,13 @@ const data = {
         },
         {
             title: "Processos",
-            url: "/permissions",
+            url: "/processes",
             icon: Scale,
             permission: ["1", "2"]
         },
         {
             title: "Clientes",
-            url: "/permissions",
+            url: "/clients",
             icon: Users,
             permission: ["1", "2"]
         }

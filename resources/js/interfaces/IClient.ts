@@ -1,15 +1,15 @@
+import { clientFormSchema } from "@/schemas/form-process-schema";
 import { z } from "zod";
-import { benefitFormSchema } from "@/schemas/form-benefit-schema";
 
-interface IBenefit {
+interface IClient {
     external_id: string;
     name: string;
-    value: number;
-    punishment_loss: boolean;
+    gender: string;
+    whatsapp: number;
 }
 
-interface IBenefitData {
-    data: IBenefit[];
+interface IClientData {
+    data: IClient[];
     first_page_url: string;
     last_page_url: string;
     next_page_url: string;
@@ -21,8 +21,8 @@ interface IBenefitData {
     last_page: number;
 }
 
-interface IBenefitProps {
-    benefits: IBenefitData;
+interface IClientProps {
+    benefits: IClientData;
     queryParams: {
         search?: string;
         [key: string]: any;
@@ -33,15 +33,16 @@ interface IBenefitProps {
     };
 }
 
-interface IBenefitFormDialogProps {
+interface IClientFormDialogProps {
     data?: any;
-    external_id?: string;
+    id?: string;
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
     onSubmit: (
-        values: z.infer<ReturnType<typeof benefitFormSchema>>,
+        values: z.infer<ReturnType<typeof clientFormSchema>>,
         external_id?: string
     ) => void;
 }
 
-export type { IBenefit, IBenefitData, IBenefitFormDialogProps, IBenefitProps };
+export type { IClient, IClientData, IClientFormDialogProps, IClientProps };
+

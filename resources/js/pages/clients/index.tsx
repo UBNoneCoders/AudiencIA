@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { z } from "zod";
 
 import { DataTable } from "@/components/data-table";
-
+import { ClientFormDialog } from "@/components/forms/form-client";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -26,10 +26,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import AuthenticatedLayout from "@/layouts/authenticated-layout";
-
-import { IBenefit, IBenefitProps } from "@/interfaces/IBenefit";
-import { benefitFormSchema } from "@/schemas/form-benefit-schema";
-import { useHasAnyPermission, useHasPermission } from "@/utils/permissions";
+import { clientFormSchema } from "@/schemas/form-client-schema";
 
 const getColumns = (): ColumnDef<any>[] => [
     {
@@ -42,28 +39,30 @@ const getColumns = (): ColumnDef<any>[] => [
         ),
     },
     {
-        accessorKey: "value",
-        header: "Valor",
+        accessorKey: "gender",
+        header: "Gênero",
         cell: ({ row }) => (
             <div className="flex items-center gap-4">
-                <span>R$ {row.original.value}</span>
+                <span>{row.original.gender.charAt(0).toUpperCase() + row.original.gender.substring(1)}</span>
             </div>
         ),
     },
     {
-        accessorKey: "punishment_loss",
-        header: "Falta faz perder o beneficio?",
+        accessorKey: "whatsapp",
+        header: "Whatsapp",
         cell: ({ row }) => (
-            <div className="flex items-center gap-2">
-                <span>{row.original.punishment_loss ? "SIM" : "NÂO"}</span>
+            <div className="flex items-center gap-4">
+                <span>{row.original.whatsapp}</span>
             </div>
         ),
     },
     {
         id: "actions",
-        enableHiding: false,
+        header: () => <div className="text-right">Ações</div>,
         cell: ({ row }) => {
-            const benefit = row.original;
+            const client = row.original;
+
+            console.log(client);
 
             const [isOpenAlertDelete, setIsOpenAlertDelete] = useState<boolean>(false);
             const onAlertDelete = () => setIsOpenAlertDelete(!isOpenAlertDelete);
@@ -71,8 +70,10 @@ const getColumns = (): ColumnDef<any>[] => [
             const [isOpenUpdateForm, setIsOpenUpdateForm] = useState<boolean>(false);
             const onUpdate = () => setIsOpenUpdateForm(!isOpenUpdateForm);
 
-            const handleUpdate = (values: z.infer<ReturnType<typeof benefitFormSchema>>, external_id?: string) => {
-                router.put(route('benefits.update', external_id), values, {
+            const handleUpdate = (values: z.infer<ReturnType<typeof clientFormSchema>>, id?: string) => {
+                values.whatsapp = values.whatsapp.replace(/\D/g, "");
+
+                router.put(route('clients.update', id), values, {
                     preserveState: true,
                     preserveScroll: true,
                     onSuccess: () => {
@@ -84,8 +85,8 @@ const getColumns = (): ColumnDef<any>[] => [
                 });
             };
 
-            const handleDelete = (external_id: string) => {
-                router.delete(route('benefits.destroy', external_id), {
+            const handleDelete = (id: string) => {
+                router.delete(route('clients.destroy', id), {
                     preserveState: true,
                     preserveScroll: true,
                 });
@@ -93,7 +94,6 @@ const getColumns = (): ColumnDef<any>[] => [
 
             return (
                 <>
-                    {useHasAnyPermission(['benefits_edit', 'benefits_delete']) && (
                         <div className="flex items-center justify-end gap-2">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -104,17 +104,13 @@ const getColumns = (): ColumnDef<any>[] => [
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                                    {useHasPermission("benefits_edit") && (
                                         <DropdownMenuItem onClick={onUpdate}>
                                             Atualizar
                                         </DropdownMenuItem>
-                                    )}
                                     <DropdownMenuSeparator />
-                                    {useHasPermission("benefits_delete") && (
                                         <DropdownMenuItem onClick={onAlertDelete}>
                                             Deletar
                                         </DropdownMenuItem>
-                                    )}
                                 </DropdownMenuContent>
                             </DropdownMenu>
 
@@ -129,44 +125,50 @@ const getColumns = (): ColumnDef<any>[] => [
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                         <AlertDialogCancel onClick={onAlertDelete}>Cancelar</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => { handleDelete(benefit.external_id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
+                                        <AlertDialogAction onClick={() => { handleDelete(client.id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
                                             Continuar
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
                             </AlertDialog>
 
-                            <BenefitFormDialog
-                                data={benefit}
-                                external_id={benefit.external_id}
+                            <ClientFormDialog
+                                data={client}
+                                id={client.id}
                                 isOpen={isOpenUpdateForm}
                                 setIsOpen={setIsOpenUpdateForm}
                                 onSubmit={handleUpdate}
                             />
                         </div>
-                    )}
                 </>
             );
         },
     },
 ];
 
-export default function Index({ benefits, queryParams }: IBenefitProps) {
-    const [benefitData, setEnterpriseData] = useState<IBenefit[]>(benefits.data);
+interface IClient {
+    id: string;
+    name: string;
+    gender: string;
+    whatsapp: number;
+}
+
+export default function Index({ clients, queryParams }: any) {
+    const [benefitData, setEnterpriseData] = useState<IClient[]>(clients.data);
     const [columns, setColumns] = useState(getColumns());
-    const [currentPage, setCurrentPage] = useState(benefits.current_page);
-    const [lastPage, setLastPage] = useState(benefits.last_page);
-    const [perPage, setPerPage] = useState(benefits.per_page);
+    const [currentPage, setCurrentPage] = useState(clients.current_page);
+    const [lastPage, setLastPage] = useState(clients.last_page);
+    const [perPage, setPerPage] = useState(clients.per_page);
     const [searchValue, setSearchValue] = useState(queryParams.search ?? "");
     const [sort, setSort] = useState<{ column: string; direction: "asc" | "desc" }>({ column: "name", direction: "asc" });
 
     useEffect(() => {
-        setEnterpriseData(benefits.data);
+        setEnterpriseData(clients.data);
         setColumns(getColumns());
-        setCurrentPage(benefits.current_page);
-        setLastPage(benefits.last_page);
-        setPerPage(benefits.per_page);
-    }, [benefits]);
+        setCurrentPage(clients.current_page);
+        setLastPage(clients.last_page);
+        setPerPage(clients.per_page);
+    }, [clients]);
 
     useEffect(() => {
         if (benefitData.length === 0 && currentPage > 1) {
@@ -175,7 +177,7 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
     }, [benefitData]);
 
     const fetchBenefit = (page = 1, perPage = 10, search = "", sort = { column: "name", direction: "asc" }) => {
-        router.get(route('benefits.index', {
+        router.get(route('clients.index', {
             page,
             per_page: perPage,
             search,
@@ -189,7 +191,7 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
 
     const onPageChange = (page: number) => {
         setCurrentPage(page);
-        if (page != benefits.current_page) {
+        if (page != clients.current_page) {
             fetchBenefit(page, perPage, searchValue, sort);
         }
     };
@@ -201,7 +203,7 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
     const onRowsPerPageChange = (rows: number) => {
         setPerPage(rows);
         setCurrentPage(1);
-        if (rows != benefits.per_page) {
+        if (rows != clients.per_page) {
             fetchBenefit(1, rows, searchValue, sort);
         }
     };
@@ -209,8 +211,10 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
     const [isOpenAddBenefitForm, setIsOpenAddBenefitForm] = useState<boolean>(false);
     const onAddBenefit = () => setIsOpenAddBenefitForm(!isOpenAddBenefitForm);
 
-    const handleSubmit = (values: z.infer<ReturnType<typeof benefitFormSchema>>) => {
-        router.post(route('benefits.store'), values, {
+    const handleSubmit = (values: z.infer<ReturnType<typeof clientFormSchema>>) => {
+        values.whatsapp = values.whatsapp.replace(/\D/g, "");
+
+        router.post(route('clients.store'), values, {
             preserveState: true,
             preserveScroll: true,
             onSuccess: () => {
@@ -237,14 +241,11 @@ export default function Index({ benefits, queryParams }: IBenefitProps) {
                     onPageChange={onPageChange}
                     onRowsPerPageChange={onRowsPerPageChange}
                     onAdd={onAddBenefit}
-                    permissions={{
-                        create: "benefits_create",
-                    }}
                 />
             </div>
 
             {/* Formulário de Adicionar Permissão */}
-            <BenefitFormDialog
+            <ClientFormDialog
                 isOpen={isOpenAddBenefitForm}
                 setIsOpen={setIsOpenAddBenefitForm}
                 onSubmit={handleSubmit}

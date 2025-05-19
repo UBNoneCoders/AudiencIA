@@ -16,6 +16,9 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
+    require 'clients/routes.php';
+    require 'processes/routes.php';
+
     require 'benefits/routes.php';
     require 'collaborators/routes.php';
     require 'contracts/routes.php';
