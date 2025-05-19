@@ -39,11 +39,10 @@ class UserRequest extends CrudRequest
                 'min:15',
                 'confirmed',
             ],
-            'role_id' => [
+            'role' => [
                 'sometimes',
                 'nullable',
                 'integer',
-                'exists:roles,id',
             ],
             'active' => [
                 'sometimes',
@@ -81,10 +80,9 @@ class UserRequest extends CrudRequest
                 'min:8',
                 'confirmed',
             ],
-            'role_id' => [
+            'role' => [
                 'required',
                 'integer',
-                'exists:roles,id',
             ],
             'active' => [
                 'required',
