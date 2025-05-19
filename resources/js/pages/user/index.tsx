@@ -62,7 +62,7 @@ const getColumns = (rolesForCreateOptions: IRoleForCreateOptions[]): ColumnDef<a
         header: "Perfil",
         cell: ({ row }) => (
             <div className="flex items-center gap-2">
-                <span>{row.original.role_user}</span>
+                <span>{row.original.role === "1" ? "Advogado" : "Funcionário"}</span>
             </div>
         ),
     },
@@ -137,11 +137,7 @@ const getColumns = (rolesForCreateOptions: IRoleForCreateOptions[]): ColumnDef<a
 
             return (
                 <>
-                    {useHasAnyPermission([
-                        "users_list",
-                        "users_edit",
-                        "users_delete",
-                    ]) && (
+                    {useHasPermission("1") && (
                             <div className="flex items-center justify-end gap-2">
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
@@ -155,19 +151,7 @@ const getColumns = (rolesForCreateOptions: IRoleForCreateOptions[]): ColumnDef<a
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
                                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                                        {useHasPermission("users_list") && (
-                                            <Link
-                                                href={route(
-                                                    "users.show",
-                                                    user.external_id
-                                                )}
-                                            >
-                                                <DropdownMenuItem>
-                                                    Visualizar
-                                                </DropdownMenuItem>
-                                            </Link>
-                                        )}
-                                        {useHasPermission("users_edit") && (
+                                        {useHasPermission("1") && (
                                             <>
                                                 <DropdownMenuItem
                                                     onClick={onAddUserForm}
@@ -183,7 +167,7 @@ const getColumns = (rolesForCreateOptions: IRoleForCreateOptions[]): ColumnDef<a
                                             </>
                                         )}
                                         <DropdownMenuSeparator />
-                                        {useHasPermission("users_delete") && (
+                                        {useHasPermission("1") && (
                                             <DropdownMenuItem
                                                 onClick={onAlertDelete}
                                             >
@@ -396,7 +380,7 @@ export default function Index({ users, rolesForCreateOptions, queryParams, flash
                     onRowsPerPageChange={onRowsPerPageChange}
                     onAdd={onAddUserForm}
                     permissions={{
-                        create: "users_create",
+                        create: "1",
                     }}
                 />
             </div>

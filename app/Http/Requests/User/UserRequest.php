@@ -3,8 +3,7 @@
 namespace App\Http\Requests\User;
 
 use App\Http\Requests\CrudRequest;
-use Illuminate\Validation\Rule;
-use Spatie\Permission\Models\User;
+use App\Models\User;
 
 class UserRequest extends CrudRequest
 {
@@ -39,11 +38,10 @@ class UserRequest extends CrudRequest
                 'min:15',
                 'confirmed',
             ],
-            'role_id' => [
+            'role' => [
                 'sometimes',
                 'nullable',
                 'integer',
-                'exists:roles,id',
             ],
             'active' => [
                 'sometimes',
@@ -81,10 +79,9 @@ class UserRequest extends CrudRequest
                 'min:8',
                 'confirmed',
             ],
-            'role_id' => [
+            'role' => [
                 'required',
                 'integer',
-                'exists:roles,id',
             ],
             'active' => [
                 'required',

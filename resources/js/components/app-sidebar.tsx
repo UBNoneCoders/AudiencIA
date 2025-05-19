@@ -13,7 +13,7 @@ import {
     SidebarMenu,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import logo from "@/assets/images/logo.png";
 
@@ -25,8 +25,8 @@ const data = {
             icon: Home,
         },
         {
-            title: "Colaboradores",
-            url: "/collaborators",
+            title: "Usuários",
+            url: "/users",
             icon: Handshake,
             permission: ["1"]
         },
