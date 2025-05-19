@@ -18,13 +18,5 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
 
     require 'clients/routes.php';
     require 'processes/routes.php';
-
-    require 'benefits/routes.php';
-    require 'collaborators/routes.php';
-    require 'contracts/routes.php';
-    require 'enterprises/routes.php';
-    require 'permissions/routes.php';
-    require 'resignation_reasons/routes.php';
-    require 'roles/routes.php';
     require 'users/routes.php';
 });
