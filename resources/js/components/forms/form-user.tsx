@@ -35,7 +35,6 @@ export const UserFormDialog: React.FC<IUserFormDialogProps> = ({
     data,
     external_id,
     isOpen,
-    rolesForCreateOptions,
     setIsOpen,
     onSubmit,
 }) => {
@@ -49,12 +48,13 @@ export const UserFormDialog: React.FC<IUserFormDialogProps> = ({
             email: data?.email || "",
             password: "",
             password_confirmation: "",
-            role_id: data?.role_id || "",
+            role: data?.role || "",
             active: data?.active ?? true,
         },
     });
 
     const handleSubmit = (values: z.infer<ReturnType<typeof userFormSchema>>) => {
+        console.log(values);
         onSubmit(values, external_id);
     };
 
@@ -68,7 +68,7 @@ export const UserFormDialog: React.FC<IUserFormDialogProps> = ({
         if (data) {
             form.reset({
                 ...data,
-                role_id: String(data.role_id),
+                role: String(data.role),
                 active: Boolean(data.active),
             });
         }
@@ -189,44 +189,37 @@ export const UserFormDialog: React.FC<IUserFormDialogProps> = ({
                         </div>
 
                         <div className="grid grid-cols-1 items-start gap-3">
-                            <Label
-                                htmlFor="role_id"
-                                className={
-                                    form.formState.errors.role_id
-                                        ? "text-destructive"
-                                        : undefined
-                                }
-                            >
-                                Perfil
-                            </Label>
-                            <Select
-                                defaultValue={String(form.watch("role_id"))}
-                                onValueChange={(value) => form.setValue("role_id", value)}
-                                disabled={auth.user.external_id === external_id}
-                            >
-                                <SelectTrigger className="w-full">
-                                    <SelectValue
-                                        placeholder="Selecione o perfil..."
-                                    />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectLabel>Perfil</SelectLabel>
-                                        {rolesForCreateOptions?.map((role) => (
-                                            <SelectItem value={String(role.value)} key={role.value}>
-                                                {role.label}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
+                          <Label
+                              htmlFor="role"
+                              className={
+                                  form.formState.errors.role ? "text-destructive" : undefined
+                              }
+                          >
+                              Perfil
+                          </Label>
+                          <Select
+                              defaultValue={String(form.watch("role"))}
+                              onValueChange={(value) => form.setValue("role", value)}
+                              disabled={auth.user.external_id === external_id}
+                          >
+                              <SelectTrigger className="w-full">
+                                  <SelectValue placeholder="Selecione o perfil..." />
+                              </SelectTrigger>
+                              <SelectContent>
+                                  <SelectGroup>
+                                      <SelectLabel>Perfil</SelectLabel>
+                                      <SelectItem value="1">Advogado</SelectItem>
+                                      <SelectItem value="2">Colaborador</SelectItem>
+                                  </SelectGroup>
+                              </SelectContent>
+                          </Select>
 
-                            {"role_id" in form.formState.errors && (
-                                <p className="text-destructive text-sm">
-                                    {form.formState.errors.role_id?.message}
-                                </p>
-                            )}
-                        </div>
+                          {"role" in form.formState.errors && (
+                              <p className="text-destructive text-sm">
+                                  {form.formState.errors.role?.message}
+                              </p>
+                          )}
+                      </div>
 
                         <div className="grid grid-cols-1 items-start gap-3">
                             <Label
