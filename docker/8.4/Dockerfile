@@ -2,8 +2,8 @@
 FROM php:8.4-apache
 
 # Argumentos para permissões (passados pelo docker-compose)
-ARG WWWGROUP
-ARG WWWUSER
+ARG WWWUSER=1000
+ARG WWWGROUP=1000
 
 # Atualiza o sistema e instala dependências essenciais
 RUN apt-get update && apt-get install -y \
