@@ -42,4 +42,4 @@ WORKDIR /var/www/html
 EXPOSE 80 5173
 
 # Comando padrão para rodar o npm e o Laravel ao iniciar o container
-CMD /bin/bash -c "npm install && npm run dev & php artisan serve --host=0.0.0.0 --port=80"
+CMD /bin/bash -c "npm install && npm run dev & php artisan serve"
