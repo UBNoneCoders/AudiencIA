@@ -32,7 +32,7 @@ const data = {
         },
         {
             title: "Audiências",
-            url: "/roles",
+            url: "/hearings",
             icon: Webcam,
             permission: ["1", "2"]
         },

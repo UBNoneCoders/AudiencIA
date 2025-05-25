@@ -19,4 +19,5 @@ Route::prefix('/')->middleware(['auth'])->group(function () {
     require 'clients/routes.php';
     require 'processes/routes.php';
     require 'users/routes.php';
+    require 'hearings/routes.php';
 });
