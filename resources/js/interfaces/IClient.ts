@@ -1,4 +1,4 @@
-import { clientFormSchema } from "@/schemas/form-process-schema";
+import { clientFormSchema } from "@/schemas/form-client-schema";
 import { z } from "zod";
 
 interface IClient {
