@@ -1,37 +1,50 @@
-version: '3.8'
-
 services:
-  laravel:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/var/www/html
-    expose:
-      - 9000
-    environment:
-      APP_ENV: production
-      APP_DEBUG: 'false'
-      DB_CONNECTION: pgsql
-      DB_HOST: aws-0-sa-east-1.pooler.supabase.com
-      DB_PORT: 5432
-      DB_DATABASE: postgres
-      DB_USERNAME: postgres.tamhqdbhaytvncdshyqk
-      DB_PASSWORD: "NoneCoders123"
-    depends_on:
-      - redis
+    laravel.test:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.4'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.4/app'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-8081}:80'
+            - '${VITE_PORT:-5173}:5173'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - redis
+        command: /bin/bash -c "npm install && npm run dev & php artisan serve --host=0.0.0.0 --port=80"
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./:/var/www/html
-      - ./docker/nginx/laravel.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - laravel
+    redis:
+        image: 'redis:alpine'
+        ports:
+            - '${FORWARD_REDIS_PORT:-6379}:6379'
+        volumes:
+            - 'sail-redis:/data'
+        networks:
+            - sail
+        healthcheck:
+            test:
+                - CMD
+                - redis-cli
+                - ping
+            retries: 3
+            timeout: 5s
 
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
+networks:
+    sail:
+        driver: bridge
+
+volumes:
+    sail-redis:
+        driver: local
