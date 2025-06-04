@@ -36,6 +36,7 @@ export const hearingFormSchema = (isEditing: boolean) =>
     description: z
       .string()
       .max(1000, "A descrição deve ter no máximo 1000 caracteres.")
+      .nullable()
       .optional()
       .or(z.literal("")),
   })

@@ -26,13 +26,13 @@ import { hearingFormSchema } from "@/schemas/form-hearing-schema"
 
 export const HearingFormDialog = ({
   data,
-  id,
+  uuid,
   isOpen,
   setIsOpen,
   onSubmit,
   processes,
 }: any) => {
-  const isEditing = !!id
+  const isEditing = !!uuid
 
   const form = useForm<z.infer<ReturnType<typeof hearingFormSchema>>>({
     resolver: zodResolver(hearingFormSchema(isEditing)),
@@ -49,7 +49,7 @@ export const HearingFormDialog = ({
   const handleSubmit = (
     values: z.infer<ReturnType<typeof hearingFormSchema>>
   ) => {
-    onSubmit(values, id)
+    onSubmit(values, uuid)
     setIsOpen(false)
     form.reset()
   }
@@ -86,7 +86,9 @@ export const HearingFormDialog = ({
           className="grid gap-4 py-4">
           {/* Processo */}
           <div className="grid gap-2">
-            <Label htmlFor="process_id">Processo</Label>
+            <Label htmlFor="process_id">
+              Processo <span className="text-red-500">*</span>
+            </Label>
             <Select
               value={form.watch("process_id")}
               onValueChange={(value) => form.setValue("process_id", value)}>
@@ -117,7 +119,9 @@ export const HearingFormDialog = ({
           {/* Tipo e Data */}
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="type">Tipo</Label>
+              <Label htmlFor="type">
+                Tipo <span className="text-red-500">*</span>
+              </Label>
               <Input
                 {...form.register("type")}
                 placeholder="Ex: Audiência inicial"
@@ -129,7 +133,9 @@ export const HearingFormDialog = ({
               )}
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="date">Data e Hora</Label>
+              <Label htmlFor="date">
+                Data e Hora <span className="text-red-500">*</span>
+              </Label>
               <Input type="datetime-local" {...form.register("date")} />
               {form.formState.errors.date && (
                 <p className="text-sm text-red-500">
@@ -152,7 +158,9 @@ export const HearingFormDialog = ({
 
           {/* Status */}
           <div className="grid gap-2">
-            <Label htmlFor="status">Status</Label>
+            <Label htmlFor="status">
+              Status <span className="text-red-500">*</span>
+            </Label>
             <Select
               value={form.watch("status")}
               onValueChange={(value) =>
@@ -188,7 +196,7 @@ export const HearingFormDialog = ({
             <Label htmlFor="description">Descrição (opcional)</Label>
             <Textarea
               {...form.register("description")}
-              placeholder="Detalhes da audiência..."
+              placeholder="Detalhes da audiência para cliente..."
               className="w-full p-2 border rounded-md"
             />
             {form.formState.errors.description && (

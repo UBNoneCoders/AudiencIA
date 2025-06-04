@@ -87,7 +87,7 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
         id: "actions",
         header: () => <div className="text-right">Ações</div>,
         cell: ({ row }) => {
-            const process = row.original;
+            const hearing = row.original;
 
             const [isOpenAlertDelete, setIsOpenAlertDelete] = useState<boolean>(false);
             const onAlertDelete = () => setIsOpenAlertDelete(!isOpenAlertDelete);
@@ -127,6 +127,9 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuLabel>Ações</DropdownMenuLabel>
+                                        <DropdownMenuItem onClick={() => router.get(route("hearings.show", row.original.external_id))}>
+                                            Visualizar
+                                        </DropdownMenuItem>
                                         <DropdownMenuItem onClick={onUpdate}>
                                             Atualizar
                                         </DropdownMenuItem>
@@ -148,7 +151,7 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                         <AlertDialogCancel onClick={onAlertDelete}>Cancelar</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => { handleDelete(process.id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
+                                        <AlertDialogAction onClick={() => { handleDelete(hearing.external_id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
                                             Continuar
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
@@ -156,8 +159,8 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
                             </AlertDialog>
 
                             <HearingFormDialog
-                                data={process}
-                                id={process.id}
+                                data={hearing}
+                                uuid={hearing.external_id}
                                 isOpen={isOpenUpdateForm}
                                 setIsOpen={setIsOpenUpdateForm}
                                 onSubmit={handleUpdate}
@@ -264,7 +267,7 @@ export default function Index({ hearings, processes, queryParams }: any) {
                     rowsPerPage={perPage}
                     searchValue={searchValue}
                     onSearchCharge={setSearchValue}
-                    searchPlaceholder="Pesquisar pela parte autora ou n° do processo..."
+                    searchPlaceholder="Pesquisar pela parte autora..."
                     onSearchSubmit={onSearchSubmit}
                     onPageChange={onPageChange}
                     onRowsPerPageChange={onRowsPerPageChange}

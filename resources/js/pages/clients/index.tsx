@@ -236,7 +236,7 @@ export default function Index({ clients, queryParams }: any) {
                     rowsPerPage={perPage}
                     searchValue={searchValue}
                     onSearchCharge={setSearchValue}
-                    searchPlaceholder="Pesquisar por nome do beneficio..."
+                    searchPlaceholder="Pesquisar por nome do cliente..."
                     onSearchSubmit={onSearchSubmit}
                     onPageChange={onPageChange}
                     onRowsPerPageChange={onRowsPerPageChange}

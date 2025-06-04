@@ -43,6 +43,15 @@ class ProcessesController extends AuthController
         ]);
     }
 
+    public function show(string $uuid)
+    {
+        $process = $this->model::where('external_id', $uuid)->firstOrFail();
+
+        return Inertia::render('collaborator/[uuid]/index', [
+            'process' =>  $process
+        ]);
+    }
+
     public function store(ProcessRequest $request)
     {
         $data = $request->validated();

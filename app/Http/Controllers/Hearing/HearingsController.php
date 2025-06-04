@@ -12,9 +12,6 @@ class HearingsController extends Controller
 {
     protected $model = Hearing::class;
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $perPage = request()->get('per_page', 10);
@@ -50,6 +47,15 @@ class HearingsController extends Controller
         ]);
     }
 
+    public function show(string $uuid)
+    {
+        $hearing = $this->model::where('external_id', $uuid)->firstOrFail();
+
+        return Inertia::render('hearings/[uuid]/index', [
+            'hearing' =>  $hearing
+        ]);
+    }
+
     public function store(HearingRequest $request)
     {
         $data = $request->validated();
@@ -59,22 +65,22 @@ class HearingsController extends Controller
         session()->flash('success', 'Audiência criada com sucesso');
     }
 
-    public function update(HearingRequest $request, string $id)
+    public function update(HearingRequest $request, string $uuid)
     {
-        $client = $this->model::findOrFail($id);
+        $hering = $this->model::where('external_id', $uuid)->firstOrFail();
 
         $data = $request->validated();
 
-        $client->update($data);
+        $hering->update($data);
 
         session()->flash('success', 'Audiência atualizada com sucesso');
     }
 
-    public function destroy(string $id)
+    public function destroy(string $uuid)
     {
-        $client = $this->model::findOrFail($id);
+        $hering = $this->model::where('external_id', $uuid)->firstOrFail();
 
-        $client->delete();
+        $hering->delete();
 
         session()->flash('success', 'Audiência deletada com sucesso');
     }
