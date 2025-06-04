@@ -30,13 +30,13 @@ import { Textarea } from "../ui/textarea"
 
 export const ProcessFormDialog = ({
   data,
-  id,
+  uuid,
   isOpen,
   setIsOpen,
   onSubmit,
   clients,
 }: any) => {
-  const isEditing = !!id
+  const isEditing = !!uuid
 
   const form = useForm<z.infer<ReturnType<typeof processFormSchema>>>({
     resolver: zodResolver(processFormSchema(isEditing)),
@@ -54,7 +54,7 @@ export const ProcessFormDialog = ({
   const handleSubmit = (
     values: z.infer<ReturnType<typeof processFormSchema>>
   ) => {
-    onSubmit(values, id)
+    onSubmit(values, uuid)
     setIsOpen(false)
     form.reset()
   }

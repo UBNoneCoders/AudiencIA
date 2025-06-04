@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Requests\Process\ProcessRequest;
+use App\Models\Hearing;
 use App\Models\Process;
 use App\Models\Client;
 use Inertia\Inertia;
@@ -47,8 +48,11 @@ class ProcessesController extends AuthController
     {
         $process = $this->model::where('external_id', $uuid)->firstOrFail();
 
-        return Inertia::render('collaborator/[uuid]/index', [
-            'process' =>  $process
+        $hearings = Hearing::where("process_id", $process->id)->get();
+
+        return Inertia::render('processes/[uuid]/index', [
+            'process' =>  $process,
+            'hearings' => $hearings
         ]);
     }
 
@@ -61,22 +65,22 @@ class ProcessesController extends AuthController
         session()->flash('success', 'Processo criado com sucesso');
     }
 
-    public function update(ProcessRequest $request, string $id)
+    public function update(ProcessRequest $request, string $uuid)
     {
-        $client = $this->model::findOrFail($id);
+        $process = $this->model::where('external_id', $uuid)->firstOrFail();
 
         $data = $request->validated();
 
-        $client->update($data);
+        $process->update($data);
 
         session()->flash('success', 'Processo atualizado com sucesso');
     }
 
-    public function destroy(string $id)
+    public function destroy(string $uuid)
     {
-        $client = $this->model::findOrFail($id);
+        $process = $this->model::where('external_id', $uuid)->firstOrFail();
 
-        $client->delete();
+        $process->delete();
 
         session()->flash('success', 'Processo deletado com sucesso');
     }

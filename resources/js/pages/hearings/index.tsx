@@ -95,8 +95,8 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
             const [isOpenUpdateForm, setIsOpenUpdateForm] = useState<boolean>(false);
             const onUpdate = () => setIsOpenUpdateForm(!isOpenUpdateForm);
 
-            const handleUpdate = (values: z.infer<ReturnType<typeof hearingFormSchema>>, id?: string) => {
-                router.put(route('hearings.update', id), values, {
+            const handleUpdate = (values: z.infer<ReturnType<typeof hearingFormSchema>>, uuid?: string) => {
+                router.put(route('hearings.update', uuid), values, {
                     preserveState: true,
                     preserveScroll: true,
                     onSuccess: () => {
@@ -108,8 +108,8 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
                 });
             };
 
-            const handleDelete = (id: string) => {
-                router.delete(route('hearings.destroy', id), {
+            const handleDelete = (uuid: string) => {
+                router.delete(route('hearings.destroy', uuid), {
                     preserveState: true,
                     preserveScroll: true,
                 });
@@ -127,7 +127,7 @@ const getColumns = (processes: {label: string, value: string}): ColumnDef<any>[]
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuLabel>Ações</DropdownMenuLabel>
-                                        <DropdownMenuItem onClick={() => router.get(route("hearings.show", row.original.external_id))}>
+                                        <DropdownMenuItem onClick={() => router.get(route("hearings.show", hearing.external_id))}>
                                             Visualizar
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onClick={onUpdate}>

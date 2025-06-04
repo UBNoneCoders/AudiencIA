@@ -77,8 +77,8 @@ const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] =
             const [isOpenUpdateForm, setIsOpenUpdateForm] = useState<boolean>(false);
             const onUpdate = () => setIsOpenUpdateForm(!isOpenUpdateForm);
 
-            const handleUpdate = (values: z.infer<ReturnType<typeof processFormSchema>>, id?: string) => {
-                router.put(route('processes.update', id), values, {
+            const handleUpdate = (values: z.infer<ReturnType<typeof processFormSchema>>, uuid?: string) => {
+                router.put(route('processes.update', uuid), values, {
                     preserveState: true,
                     preserveScroll: true,
                     onSuccess: () => {
@@ -90,8 +90,8 @@ const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] =
                 });
             };
 
-            const handleDelete = (id: string) => {
-                router.delete(route('processes.destroy', id), {
+            const handleDelete = (uuid: string) => {
+                router.delete(route('processes.destroy', uuid), {
                     preserveState: true,
                     preserveScroll: true,
                 });
@@ -109,6 +109,9 @@ const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] =
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuLabel>Ações</DropdownMenuLabel>
+                                        <DropdownMenuItem onClick={() => router.get(route('processes.show', { uuid: process.external_id }))}>
+                                            Visualizar
+                                        </DropdownMenuItem>
                                         <DropdownMenuItem onClick={onUpdate}>
                                             Atualizar
                                         </DropdownMenuItem>
@@ -130,7 +133,7 @@ const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] =
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                         <AlertDialogCancel onClick={onAlertDelete}>Cancelar</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => { handleDelete(process.id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
+                                        <AlertDialogAction onClick={() => { handleDelete(process.external_id); onAlertDelete() }} className="bg-red-500 hover:bg-red-900">
                                             Continuar
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
@@ -139,7 +142,7 @@ const getColumns = (clients: {label: string, value: string}): ColumnDef<any>[] =
 
                             <ProcessFormDialog
                                 data={process}
-                                id={process.id}
+                                uuid={process.external_id}
                                 isOpen={isOpenUpdateForm}
                                 setIsOpen={setIsOpenUpdateForm}
                                 onSubmit={handleUpdate}

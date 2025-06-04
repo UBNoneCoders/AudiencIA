@@ -10,5 +10,5 @@ export const processFormSchema = (isEditing: boolean) =>
     process_number: z.string().min(5, "Número do processo é obrigatório."),
     case_reason: z.string().min(3, "Motivo do processo é obrigatório."),
     case_value: z.string().min(1, "Valor do processo é obrigatório."),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
   })
