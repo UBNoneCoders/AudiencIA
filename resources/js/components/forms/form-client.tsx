@@ -152,7 +152,7 @@ export const ClientFormDialog: React.FC<IClientFormDialogProps> = ({
                 WhatsApp
               </Label>
               <InputMask
-                mask="(99) 99999-9999"
+                mask="(99) 9999-9999"
                 value={form.watch("whatsapp")}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   form.setValue("whatsapp", e.target.value)

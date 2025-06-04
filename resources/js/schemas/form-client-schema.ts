@@ -13,6 +13,6 @@ export const clientFormSchema = (isEditing: boolean) =>
 
     whatsapp: z
       .string()
-      .min(14, "O WhatsApp deve conter o formato completo (99) 99999-9999")
-      .regex(/^\(\d{2}\) \d{5}-\d{4}$/, "Formato inválido de WhatsApp"),
+      .min(13, "O WhatsApp deve conter o formato completo (99) 9999-9999")
+      .regex(/^\(\d{2}\) \d{4}-\d{4}$/, "Formato inválido de WhatsApp"),
   })
