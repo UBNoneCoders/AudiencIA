@@ -64,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                 <img src={logo} alt="Conecta Networks" className="rounded-lg" />
                             </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-semibold">Sousa Alencar Advocacia</span>
+                                <span className="truncate font-semibold">Sistemática Advocacia</span>
                                 <span className="truncate text-xs">Sistema de Audiências</span>
                             </div>
                         </div>
