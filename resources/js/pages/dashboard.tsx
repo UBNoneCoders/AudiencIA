@@ -11,6 +11,7 @@ export default function Dashboard({
   hearings_this_week,
   hearings_next_week,
 }: any) {
+  console.log(clients, hearings, processes)
   return (
     <AuthenticatedLayout header="Dashboard">
       <Head title="Dashboard" />
