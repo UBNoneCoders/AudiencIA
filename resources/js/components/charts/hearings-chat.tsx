@@ -39,12 +39,12 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function ChartBarDefault({
-  data,
+  data = [],
   title = "Audiências por dia da semana",
   description = "Esta semana",
 }: ChartBarProps) {
   const chartData = DAYS_OF_WEEK.map((day) => {
-    const found = data?.find(
+    const found = data.find(
       (item) => item.label.toLocaleLowerCase() === day.toLocaleLowerCase()
     )
     return {
