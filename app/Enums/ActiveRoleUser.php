@@ -16,9 +16,8 @@ enum ActiveRoleUser: string
     public function hierarchyLevel(): string
     {
         return match ($this) {
-            self::LAWYER => '0',
-            self::EMPLOYEE => '1',
-            self::DEFAULT => '2',
+            self::LAWYER => '1',
+            self::EMPLOYEE => '2',
         };
     }
 }

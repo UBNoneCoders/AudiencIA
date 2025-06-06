@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             ['email' => 'advogado@adv.com'],
             [
                 'external_id' => Str::uuid()->toString(),
-                'name' => 'Advogado(a) Sousa Alencar',
+                'name' => 'Advogado(a) Sistemática',
                 'password' => bcrypt('123456'),
                 'role' => '1',
                 'email_verified_at' => now(),
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             ['email' => 'funcionario@adv.com'],
             [
                 'external_id' => Str::uuid()->toString(),
-                'name' => 'Funcionário(a) Sousa Alencar',
+                'name' => 'Funcionário(a) Sistemática',
                 'password' => bcrypt('123456'),
                 'role' => '2',
                 'email_verified_at' => now(),

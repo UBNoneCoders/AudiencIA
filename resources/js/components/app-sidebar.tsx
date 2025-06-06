@@ -13,7 +13,7 @@ import {
     SidebarMenu,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import logo from "@/assets/images/logo.png";
 
@@ -25,26 +25,26 @@ const data = {
             icon: Home,
         },
         {
-            title: "Colaboradores",
-            url: "/collaborators",
+            title: "Usuários",
+            url: "/users",
             icon: Handshake,
             permission: ["1"]
         },
         {
             title: "Audiências",
-            url: "/roles",
+            url: "/hearings",
             icon: Webcam,
             permission: ["1", "2"]
         },
         {
             title: "Processos",
-            url: "/permissions",
+            url: "/processes",
             icon: Scale,
             permission: ["1", "2"]
         },
         {
             title: "Clientes",
-            url: "/permissions",
+            url: "/clients",
             icon: Users,
             permission: ["1", "2"]
         }
@@ -64,7 +64,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                 <img src={logo} alt="Conecta Networks" className="rounded-lg" />
                             </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-semibold">Sousa Alencar Advocacia</span>
+                                <span className="truncate font-semibold">Sistemática Advocacia</span>
                                 <span className="truncate text-xs">Sistema de Audiências</span>
                             </div>
                         </div>

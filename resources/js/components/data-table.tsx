@@ -148,17 +148,12 @@ export function DataTable<TData>({
                 )}
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        {/*
-                            <Button variant="outline" className="ml-auto">
-                                Colunas <ChevronDown />
-                            </Button>
-                        */}
                     </DropdownMenuTrigger>
-                    {onAdd && useHasPermission(permissions?.['create'] ?? '') && (
+
                         <Button variant="outline" className="ml-auto" onClick={onAdd}>
                             <Plus /> <span className="hidden md:block">Adicionar</span>
                         </Button>
-                    )}
+
                     <DropdownMenuContent align="end">
                         {table
                             .getAllColumns()

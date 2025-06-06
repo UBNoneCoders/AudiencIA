@@ -46,7 +46,7 @@ const userFormSchema = (isEditing: boolean) =>
                 : z.string()
                     .min(8, "A confirmação de senha deve ter no mínimo 8 caracteres.")
                     .max(50, "A confirmação de senha deve ter no máximo 50 caracteres."),
-            role_id: isEditing
+            role: isEditing
                 ? z.string().min(1, "O papel é obrigatório.").optional()
                 : z.string().min(1, "O papel é obrigatório."),
             active: isEditing
